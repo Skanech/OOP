@@ -36,11 +36,14 @@ public:     //конструкторы
 
 int main()
 {
-    int c;
-    cin>>c;
-    Circle C1(5, 2, 2);
+    int r,x,y,p;
+    cout<<"Enter radius = "; cin>>r;
+    cout<<"Enter x = "; cin>>x;
+    cout<<"and y = "; cin>>y;
+    cout<<"Enter c = "; cin>>p;
+    Circle C1(r, x, y);
     Circle C2(1, -1, -1);
-    Circle C3(c, 0, 0);
+    Circle C3(p, 0, 0);
     Circle C4 = C1*C2;
     Circle C = C4+C3;
     C.print();
