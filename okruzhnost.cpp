@@ -1,51 +1,52 @@
+//Вариант 20 Третьяков Виталий КМБО-06-20
+
 #include <iostream>
 using namespace std;
-class Circle
+
+class Circle  //создаем класс Окружность
 {
-private:    //поля: радиус, x и y
-    int radius;
-    int x;
-    int y;
+private:    //добавляем переменные для класса: радиус, x и y
+    double radius;
+    double x;
+    double y;
 public:     //конструкторы
     Circle() {radius = 0; x = 0; y = 0;}
-    Circle(int Radius, int X, int Y) {radius = Radius; x = X; y = Y;}
+    Circle(double Radius, double X, double Y) {radius = Radius; x = X; y = Y;}
 
-    Circle operator+(Circle C)
+    friend Circle operator+(Circle C,int p)  //создаем оператор сложения для увеличения радиуса
     {
         Circle Res;
-        Res.radius = radius+ C.radius;
-        Res.x = x+ C.x;
-        Res.y = y+ C.y;
+        Res.radius = p+ C.radius;
+        Res.x = C.x;
+        Res.y = C.y;
         return Res;
     }
-    Circle operator*(Circle C)
+    friend Circle operator-(Circle C)  //создаем оператор - для смены знака x и y
     {
         Circle Res;
-        Res.radius = radius* C.radius;
-        Res.x = x* C.x;
-        Res.y = y* C.y;
+        Res.radius = C.radius;
+        Res.x = (-1) * C.x;
+        Res.y = (-1) * C.y;
         return Res;
     }
-    void print()
+    void print()  // создаем воид для вывода значений
     {
+        cout << endl << "OKPYJILHOCTb" << endl;
         cout << "Radius = " << radius << endl;
         cout << "x = " << x << endl;
         cout << "y = " << y;
     }
 };
 
-int main()
+int main()  //главная функция
 {
-    int r,x,y,p;
-    cout<<"Enter radius = "; cin>>r;
-    cout<<"Enter x = "; cin>>x;
-    cout<<"and y = "; cin>>y;
-    cout<<"Enter c = "; cin>>p;
-    Circle C1(r, x, y);
-    Circle C2(1, -1, -1);
-    Circle C3(p, 0, 0);
-    Circle C4 = C1*C2;
-    Circle C = C4+C3;
-    C.print();
+    double r,x,y,p;  //создаем второстепенные переменные, для возможности ввода пользователя своих значений
+    cout<<"Enter radius = "; cin>>r;  //ввод радиуса
+    cout<<"Enter x = "; cin>>x;       //ввод координаты x
+    cout<<"and y = "; cin>>y;         //ввод координаты y
+    cout<<"Enter p = "; cin>>p;       //ввод переменной p, далее r=r+p
+    Circle C1 (r,x,y);                //создаем окружность
+    Circle C = -C1+p;                 //проводим операции
+    C.print();                        //вывод C
     return 0;
 }
