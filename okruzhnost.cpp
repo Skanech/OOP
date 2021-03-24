@@ -15,20 +15,20 @@ public:     //конструкторы
     Circle() {radius = 0; x = 0; y = 0;}
     Circle(double Radius, double X, double Y) {radius = Radius; x = X; y = Y;}
 
-    friend Circle operator+(Circle C,int p)  //создаем оператор сложения для увеличения радиуса
+    Circle operator+(int p)  //создаем оператор сложения для увеличения радиуса
     {
         Circle Res;
-        Res.radius = p+ C.radius;
-        Res.x = C.x;
-        Res.y = C.y;
+        Res.radius = p+ radius;
+        Res.x = x;
+        Res.y = y;
         return Res;
     }
-    friend Circle operator-(Circle C)  //создаем оператор - для смены знака x и y
+    Circle operator-()  //создаем оператор - для смены знака x и y
     {
         Circle Res;
-        Res.radius = C.radius;
-        Res.x = (-1) * C.x;
-        Res.y = (-1) * C.y;
+        Res.radius = radius;
+        Res.x = (-1) * x;
+        Res.y = (-1) * y;
         return Res;
     }
     void print()  // создаем воид для вывода значений
